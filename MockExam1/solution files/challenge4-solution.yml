@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  tasks:
+    - name: copy a secret file to remote hosts
+      copy:
+        src: secret_file.txt
+        dest: /root/.secret_file.txt
+# To apply use the bellow command
+# ansible-playbook -i inventory copy_secrets.yml --vault-password-file get_vault_pass.txta
