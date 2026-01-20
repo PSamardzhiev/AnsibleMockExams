@@ -15,6 +15,9 @@ AnsibleMockExams/
         ├── challenge2-solution.yml
         ├── challenge3-solution.yml
         └── challenge4-solution.yml
+        ...
+        etc.
+        
 ```
 
 ## How to Use This Repository
