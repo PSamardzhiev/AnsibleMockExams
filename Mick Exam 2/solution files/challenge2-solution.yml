@@ -1,0 +1,18 @@
+- name: install using ansible blocks
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Install and configure httpd web server
+      block:
+        - name: Install httpd server
+          yum:
+            name: httpd
+            state: latest
+
+        - name: Start httpd service
+          service:
+            name: httpd
+            state: started
+            enabled: true

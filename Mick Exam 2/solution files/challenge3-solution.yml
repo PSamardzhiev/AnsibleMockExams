@@ -1,0 +1,22 @@
+- name: install and configure firewalld playbook
+  hosts: node00
+  become: true
+  gather_facts: no
+  tasks:
+    - name: install firewalld
+      yum:
+        name: firewalld
+        state: present
+
+    - name: start and enable firewalld service
+      service:
+        name: firewalld
+        state: started
+
+    - name: whitelist node01 ip
+      firewalld:
+        source: 172.20.1.101
+        zone: internal
+        state: enabled
+        permanent: true
+        immediate: true
